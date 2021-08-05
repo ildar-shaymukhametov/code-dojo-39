@@ -2,11 +2,18 @@
 
 namespace song
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            var song = @"There was an old lady who swallowed a fly.
+            var song = GetSong();
+
+            Console.WriteLine(song);
+        }
+
+        public static string GetSong()
+        {
+            return @"There was an old lady who swallowed a fly.
 I don't know why she swallowed a fly - perhaps she'll die!
 
 There was an old lady who swallowed a spider;
@@ -46,8 +53,6 @@ I don't know why she swallowed a fly - perhaps she'll die!
 
 There was an old lady who swallowed a horse...
 ...She's dead, of course!";
-
-            Console.WriteLine(song);
         }
     }
 }
