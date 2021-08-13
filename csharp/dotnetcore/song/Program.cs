@@ -13,28 +13,28 @@ namespace song
 
         public static string GetSong()
         {
-            return @"There was an old lady who swallowed a fly.
+            return @$"{Swallow("fly")}.
 I don't know why she swallowed a fly - perhaps she'll die!
 
-There was an old lady who swallowed a spider;
+{Swallow("spider")};
 That wriggled and wiggled and tickled inside her.
 She swallowed the spider to catch the fly;
 I don't know why she swallowed a fly - perhaps she'll die!
 
-There was an old lady who swallowed a bird;
+{Swallow("bird")};
 How absurd to swallow a bird.
 She swallowed the bird to catch the spider,
 She swallowed the spider to catch the fly;
 I don't know why she swallowed a fly - perhaps she'll die!
 
-There was an old lady who swallowed a cat;
+{Swallow("cat")};
 Fancy that to swallow a cat!
 She swallowed the cat to catch the bird,
 She swallowed the bird to catch the spider,
 She swallowed the spider to catch the fly;
 I don't know why she swallowed a fly - perhaps she'll die!
 
-There was an old lady who swallowed a dog;
+{Swallow("dog")};
 What a hog, to swallow a dog!
 She swallowed the dog to catch the cat,
 She swallowed the cat to catch the bird,
@@ -42,7 +42,7 @@ She swallowed the bird to catch the spider,
 She swallowed the spider to catch the fly;
 I don't know why she swallowed a fly - perhaps she'll die!
 
-There was an old lady who swallowed a cow;
+{Swallow("cow")};
 I don't know how she swallowed a cow!
 She swallowed the cow to catch the dog,
 She swallowed the dog to catch the cat,
@@ -51,8 +51,13 @@ She swallowed the bird to catch the spider,
 She swallowed the spider to catch the fly;
 I don't know why she swallowed a fly - perhaps she'll die!
 
-There was an old lady who swallowed a horse...
+{Swallow("horse..")}.
 ...She's dead, of course!";
+        }
+
+        private static string Swallow(string animal)
+        {
+            return $"There was an old lady who swallowed a {animal}";
         }
     }
 }
