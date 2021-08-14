@@ -29,7 +29,7 @@ How absurd to swallow a bird.
 
 {SwallowAnAnimal("cat")};
 Fancy that to swallow a cat!
-She swallowed the cat to catch the bird,
+{GetFourthVerseRefrain()}
 {GetThirdVerseRefrain()}
 {GetSecondVerseRefrain()}
 {GetFirstVerseRefrain()}
@@ -37,7 +37,7 @@ She swallowed the cat to catch the bird,
 {SwallowAnAnimal("dog")};
 What a hog, to swallow a dog!
 She swallowed the dog to catch the cat,
-She swallowed the cat to catch the bird,
+{GetFourthVerseRefrain()}
 {GetThirdVerseRefrain()}
 {GetSecondVerseRefrain()}
 {GetFirstVerseRefrain()}
@@ -46,7 +46,7 @@ She swallowed the cat to catch the bird,
 I don't know how she swallowed a cow!
 She swallowed the cow to catch the dog,
 She swallowed the dog to catch the cat,
-She swallowed the cat to catch the bird,
+{GetFourthVerseRefrain()}
 {GetThirdVerseRefrain()}
 {GetSecondVerseRefrain()}
 {GetFirstVerseRefrain()}
@@ -73,6 +73,11 @@ She swallowed the cat to catch the bird,
         private static string GetThirdVerseRefrain()
         {
             return "She swallowed the bird to catch the spider,";
+        }
+
+        private static string GetFourthVerseRefrain()
+        {
+            return "She swallowed the cat to catch the bird,";
         }
     }
 }
