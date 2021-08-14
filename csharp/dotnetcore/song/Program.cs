@@ -18,20 +18,20 @@ namespace song
 
 {SwallowAnAnimal("spider")};
 That wriggled and wiggled and tickled inside her.
-She swallowed the spider to catch the fly;
+{GetSecondVerseRefrain()}
 {GetFirstVerseRefrain()}
 
 {SwallowAnAnimal("bird")};
 How absurd to swallow a bird.
 She swallowed the bird to catch the spider,
-She swallowed the spider to catch the fly;
+{GetSecondVerseRefrain()}
 {GetFirstVerseRefrain()}
 
 {SwallowAnAnimal("cat")};
 Fancy that to swallow a cat!
 She swallowed the cat to catch the bird,
 She swallowed the bird to catch the spider,
-She swallowed the spider to catch the fly;
+{GetSecondVerseRefrain()}
 {GetFirstVerseRefrain()}
 
 {SwallowAnAnimal("dog")};
@@ -39,7 +39,7 @@ What a hog, to swallow a dog!
 She swallowed the dog to catch the cat,
 She swallowed the cat to catch the bird,
 She swallowed the bird to catch the spider,
-She swallowed the spider to catch the fly;
+{GetSecondVerseRefrain()}
 {GetFirstVerseRefrain()}
 
 {SwallowAnAnimal("cow")};
@@ -48,7 +48,7 @@ She swallowed the cow to catch the dog,
 She swallowed the dog to catch the cat,
 She swallowed the cat to catch the bird,
 She swallowed the bird to catch the spider,
-She swallowed the spider to catch the fly;
+{GetSecondVerseRefrain()}
 {GetFirstVerseRefrain()}
 
 {SwallowAnAnimal("horse..")}.
@@ -63,6 +63,11 @@ She swallowed the spider to catch the fly;
         private static string GetFirstVerseRefrain()
         {
             return "I don't know why she swallowed a fly - perhaps she'll die!";
+        }
+
+        private static string GetSecondVerseRefrain()
+        {
+            return "She swallowed the spider to catch the fly;";
         }
     }
 }
