@@ -14,9 +14,9 @@ namespace song
         public static string GetSong()
         {
             var firstVerse = new FirstVerse("fly");
-            return @$"{firstVerse}
+            return @$"{firstVerse.GetLyrics()}
 
-{new SecondVerse("spider", firstVerse)}
+{new SecondVerse("spider", firstVerse).GetLyrics()}
 
 {new Verse("bird").SwallowAnimal()};
 How absurd to swallow a bird.
@@ -97,7 +97,7 @@ I don't know how she swallowed a cow!
             return $"There was an old lady who swallowed a {animal}";
         }
 
-        protected virtual string GetLyrics()
+        public virtual string GetLyrics()
         {
             return string.Empty;
         }
@@ -105,11 +105,6 @@ I don't know how she swallowed a cow!
         public virtual string GetRefrain()
         {
             return string.Empty;
-        }
-
-        public override string ToString()
-        {
-            return GetLyrics();
         }
     }
 
@@ -119,7 +114,7 @@ I don't know how she swallowed a cow!
         {
         }
 
-        protected override string GetLyrics()
+        public override string GetLyrics()
         {
             return $"{SwallowAnimal()}.\n{GetRefrain()}";
         }
@@ -138,7 +133,7 @@ I don't know how she swallowed a cow!
             this.previousVerse = previousVerse;
         }
 
-        protected override string GetLyrics()
+        public override string GetLyrics()
         {
             return $"{SwallowAnimal()};\n" +
                 $"That wriggled and wiggled and tickled inside her.\n" +
