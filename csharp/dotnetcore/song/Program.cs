@@ -31,8 +31,7 @@ namespace song
 
 {sixthVerse.GetLyrics()}
 
-{new Verse("horse..").SwallowAnimal()}.
-...She's dead, of course!";
+{new SeventhVerse("horse").GetLyrics()}";
         }
 
         private static string GetFirstVerseRefrain()
@@ -215,6 +214,19 @@ namespace song
         {
             return "She swallowed the cow to catch the dog,\n" +
                 $"{previousVerse.GetRefrain()}";
+        }
+    }
+
+    public class SeventhVerse : Verse
+    {
+        public SeventhVerse(string animal) : base(animal)
+        {
+        }
+
+        public override string GetLyrics()
+        {
+            return $"{SwallowAnimal()}...\n" +
+                "...She's dead, of course!";
         }
     }
 }
