@@ -37,16 +37,16 @@ namespace song
 
     public class Verse
     {
-        protected readonly string animal;
+        public string Animal { get; }
 
         public Verse(string animal)
         {
-            this.animal = animal;
+            this.Animal = animal;
         }
 
         public string GetFirstLine()
         {
-            return $"There was an old lady who swallowed a {animal}";
+            return $"There was an old lady who swallowed a {Animal}";
         }
 
         public virtual string GetLyrics()
@@ -57,6 +57,16 @@ namespace song
         public virtual string GetRefrain()
         {
             return string.Empty;
+        }
+
+        protected string ComposeRefrain(Verse previousVerse)
+        {
+            return $"{Catch(previousVerse.Animal)},\n{previousVerse.GetRefrain()}";
+        }
+
+        protected string Catch(string animal)
+        {
+            return $"She swallowed the {Animal} to catch the {animal}";
         }
     }
 
@@ -73,7 +83,7 @@ namespace song
 
         public override string GetRefrain()
         {
-            return $"I don't know why she swallowed a {animal} - perhaps she'll die!";
+            return $"I don't know why she swallowed a {Animal} - perhaps she'll die!";
         }
     }
 
@@ -94,7 +104,7 @@ namespace song
 
         public override string GetRefrain()
         {
-            return "She swallowed the spider to catch the fly;\n" +
+            return $"{Catch(previousVerse.Animal)};\n" +
                 $"{previousVerse.GetRefrain()}";
         }
     }
@@ -110,14 +120,13 @@ namespace song
         public override string GetLyrics()
         {
             return $"{GetFirstLine()};\n" +
-                $"How absurd to swallow a {animal}.\n" +
+                $"How absurd to swallow a {Animal}.\n" +
                 $"{GetRefrain()}";
         }
 
         public override string GetRefrain()
         {
-            return "She swallowed the bird to catch the spider,\n" +
-                $"{previousVerse.GetRefrain()}";
+            return ComposeRefrain(previousVerse);
         }
     }
 
@@ -132,14 +141,13 @@ namespace song
         public override string GetLyrics()
         {
             return $"{GetFirstLine()};\n" +
-                $"Fancy that to swallow a {animal}!\n" +
+                $"Fancy that to swallow a {Animal}!\n" +
                 $"{GetRefrain()}";
         }
 
         public override string GetRefrain()
         {
-            return "She swallowed the cat to catch the bird,\n" +
-                $"{previousVerse.GetRefrain()}";
+            return ComposeRefrain(previousVerse);
         }
     }
     
@@ -154,14 +162,13 @@ namespace song
         public override string GetLyrics()
         {
             return $"{GetFirstLine()};\n" +
-                $"What a hog, to swallow a {animal}!\n" +
+                $"What a hog, to swallow a {Animal}!\n" +
                 $"{GetRefrain()}";
         }
 
         public override string GetRefrain()
         {
-            return "She swallowed the dog to catch the cat,\n" +
-                $"{previousVerse.GetRefrain()}";
+            return ComposeRefrain(previousVerse);
         }
     }
 
@@ -176,14 +183,13 @@ namespace song
         public override string GetLyrics()
         {
             return $"{GetFirstLine()};\n" +
-                $"I don't know how she swallowed a {animal}!\n" +
+                $"I don't know how she swallowed a {Animal}!\n" +
                 $"{GetRefrain()}";
         }
 
         public override string GetRefrain()
         {
-            return "She swallowed the cow to catch the dog,\n" +
-                $"{previousVerse.GetRefrain()}";
+            return ComposeRefrain(previousVerse);
         }
     }
 
