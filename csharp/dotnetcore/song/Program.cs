@@ -11,14 +11,14 @@ namespace song
             Console.WriteLine(song);
         }
 
-        public static string GetSong()
+        public static string GetSong(string animal1 = "fly", string animal2 = "spider", string animal3 = "bird", string animal4 = "cat", string animal5 = "dog", string animal6 = "cow", string animal7 = "horse")
         {
-            var firstVerse = new FirstVerse("fly");
-            var secondVerse = new SecondVerse("spider", firstVerse);
-            var thirdVerse = new ThirdVerse("bird", secondVerse);
-            var fourthVerse = new FourthVerse("cat", thirdVerse);
-            var fifthVerse = new FifthVerse("dog", fourthVerse);
-            var sixthVerse = new SixthVerse("cow", fifthVerse);
+            var firstVerse = new FirstVerse(animal1);
+            var secondVerse = new SecondVerse(animal2, firstVerse);
+            var thirdVerse = new ThirdVerse(animal3, secondVerse);
+            var fourthVerse = new FourthVerse(animal4, thirdVerse);
+            var fifthVerse = new FifthVerse(animal5, fourthVerse);
+            var sixthVerse = new SixthVerse(animal6, fifthVerse);
             return @$"{firstVerse.GetLyrics()}
 
 {secondVerse.GetLyrics()}
@@ -31,7 +31,7 @@ namespace song
 
 {sixthVerse.GetLyrics()}
 
-{new SeventhVerse("horse").GetLyrics()}";
+{new SeventhVerse(animal7).GetLyrics()}";
         }
     }
 
