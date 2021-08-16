@@ -15,18 +15,15 @@ namespace song
         {
             var firstVerse = new FirstVerse("fly");
             var secondVerse = new SecondVerse("spider", firstVerse);
+            var thirdVerse = new ThirdVerse("bird", secondVerse);
+            var fourthVerse = new FourthVerse("cat", thirdVerse);
             return @$"{firstVerse.GetLyrics()}
 
 {secondVerse.GetLyrics()}
 
-{new ThirdVerse("bird", secondVerse).GetLyrics()}
+{thirdVerse.GetLyrics()}
 
-{new Verse("cat").SwallowAnimal()};
-Fancy that to swallow a cat!
-{GetFourthVerseRefrain()}
-{GetThirdVerseRefrain()}
-{GetSecondVerseRefrain()}
-{GetFirstVerseRefrain()}
+{fourthVerse.GetLyrics()}
 
 {new Verse("dog").SwallowAnimal()};
 What a hog, to swallow a dog!
@@ -162,6 +159,28 @@ I don't know how she swallowed a cow!
         public override string GetRefrain()
         {
             return "She swallowed the bird to catch the spider,\n" +
+                $"{previousVerse.GetRefrain()}";
+        }
+    }
+
+    public class FourthVerse : Verse
+    {
+        private readonly Verse previousVerse;
+        public FourthVerse(string animal, Verse previousVerse) : base(animal)
+        {
+            this.previousVerse = previousVerse;
+        }
+
+        public override string GetLyrics()
+        {
+            return $"{SwallowAnimal()};\n" +
+                $"Fancy that to swallow a {animal}!\n" +
+                $"{GetRefrain()}";
+        }
+
+        public override string GetRefrain()
+        {
+            return "She swallowed the cat to catch the bird,\n" +
                 $"{previousVerse.GetRefrain()}";
         }
     }
