@@ -44,7 +44,7 @@ namespace song
             this.animal = animal;
         }
 
-        public string SwallowAnimal()
+        public string GetFirstLine()
         {
             return $"There was an old lady who swallowed a {animal}";
         }
@@ -68,7 +68,7 @@ namespace song
 
         public override string GetLyrics()
         {
-            return $"{SwallowAnimal()}.\n{GetRefrain()}";
+            return $"{GetFirstLine()}.\n{GetRefrain()}";
         }
 
         public override string GetRefrain()
@@ -87,7 +87,7 @@ namespace song
 
         public override string GetLyrics()
         {
-            return $"{SwallowAnimal()};\n" +
+            return $"{GetFirstLine()};\n" +
                 $"That wriggled and wiggled and tickled inside her.\n" +
                 $"{GetRefrain()}";
         }
@@ -109,7 +109,7 @@ namespace song
 
         public override string GetLyrics()
         {
-            return $"{SwallowAnimal()};\n" +
+            return $"{GetFirstLine()};\n" +
                 $"How absurd to swallow a {animal}.\n" +
                 $"{GetRefrain()}";
         }
@@ -131,7 +131,7 @@ namespace song
 
         public override string GetLyrics()
         {
-            return $"{SwallowAnimal()};\n" +
+            return $"{GetFirstLine()};\n" +
                 $"Fancy that to swallow a {animal}!\n" +
                 $"{GetRefrain()}";
         }
@@ -153,7 +153,7 @@ namespace song
 
         public override string GetLyrics()
         {
-            return $"{SwallowAnimal()};\n" +
+            return $"{GetFirstLine()};\n" +
                 $"What a hog, to swallow a {animal}!\n" +
                 $"{GetRefrain()}";
         }
@@ -175,7 +175,7 @@ namespace song
 
         public override string GetLyrics()
         {
-            return $"{SwallowAnimal()};\n" +
+            return $"{GetFirstLine()};\n" +
                 $"I don't know how she swallowed a {animal}!\n" +
                 $"{GetRefrain()}";
         }
@@ -195,7 +195,7 @@ namespace song
 
         public override string GetLyrics()
         {
-            return $"{SwallowAnimal()}...\n" +
+            return $"{GetFirstLine()}...\n" +
                 "...She's dead, of course!";
         }
     }
