@@ -13,12 +13,10 @@ namespace song
 
         public static string GetSong()
         {
-            return @$"{new FirstVerse("fly")}
+            var firstVerse = new FirstVerse("fly");
+            return @$"{firstVerse}
 
-{new Verse("spider").SwallowAnimal()};
-That wriggled and wiggled and tickled inside her.
-{GetSecondVerseRefrain()}
-{GetFirstVerseRefrain()}
+{new SecondVerse("spider", firstVerse)}
 
 {new Verse("bird").SwallowAnimal()};
 How absurd to swallow a bird.
@@ -104,7 +102,7 @@ I don't know how she swallowed a cow!
             return string.Empty;
         }
 
-        protected virtual string GetRefrain()
+        public virtual string GetRefrain()
         {
             return string.Empty;
         }
@@ -126,9 +124,31 @@ I don't know how she swallowed a cow!
             return $"{SwallowAnimal()}.\n{GetRefrain()}";
         }
 
-        protected override string GetRefrain()
+        public override string GetRefrain()
         {
             return $"I don't know why she swallowed a {animal} - perhaps she'll die!";
+        }
+    }
+
+    public class SecondVerse : Verse
+    {
+        private readonly Verse previousVerse;
+        public SecondVerse(string animal, Verse previousVerse) : base(animal)
+        {
+            this.previousVerse = previousVerse;
+        }
+
+        protected override string GetLyrics()
+        {
+            return $"{SwallowAnimal()};\n" +
+                $"That wriggled and wiggled and tickled inside her.\n" +
+                $"{GetRefrain()}";
+        }
+
+        public override string GetRefrain()
+        {
+            return "She swallowed the spider to catch the fly;\n" +
+                $"{previousVerse.GetRefrain()}";
         }
     }
 }
