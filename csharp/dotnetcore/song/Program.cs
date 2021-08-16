@@ -33,36 +33,6 @@ namespace song
 
 {new SeventhVerse("horse").GetLyrics()}";
         }
-
-        private static string GetFirstVerseRefrain()
-        {
-            return "I don't know why she swallowed a fly - perhaps she'll die!";
-        }
-
-        private static string GetSecondVerseRefrain()
-        {
-            return "She swallowed the spider to catch the fly;";
-        }
-
-        private static string GetThirdVerseRefrain()
-        {
-            return "She swallowed the bird to catch the spider,";
-        }
-
-        private static string GetFourthVerseRefrain()
-        {
-            return "She swallowed the cat to catch the bird,";
-        }
-
-        private static string GetFifthVerseRefrain()
-        {
-            return "She swallowed the dog to catch the cat,";
-        }
-
-        private static string GetSixthVerseRefrain()
-        {
-            return "She swallowed the cow to catch the dog,";
-        }
     }
 
     public class Verse
