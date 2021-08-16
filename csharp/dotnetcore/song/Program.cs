@@ -13,28 +13,27 @@ namespace song
 
         public static string GetSong()
         {
-            return @$"{SwallowAnAnimal("fly")}.
-{GetFirstVerseRefrain()}
+            return @$"{new FirstVerse("fly")}
 
-{SwallowAnAnimal("spider")};
+{new Verse("spider").SwallowAnimal()};
 That wriggled and wiggled and tickled inside her.
 {GetSecondVerseRefrain()}
 {GetFirstVerseRefrain()}
 
-{SwallowAnAnimal("bird")};
+{new Verse("bird").SwallowAnimal()};
 How absurd to swallow a bird.
 {GetThirdVerseRefrain()}
 {GetSecondVerseRefrain()}
 {GetFirstVerseRefrain()}
 
-{SwallowAnAnimal("cat")};
+{new Verse("cat").SwallowAnimal()};
 Fancy that to swallow a cat!
 {GetFourthVerseRefrain()}
 {GetThirdVerseRefrain()}
 {GetSecondVerseRefrain()}
 {GetFirstVerseRefrain()}
 
-{SwallowAnAnimal("dog")};
+{new Verse("dog").SwallowAnimal()};
 What a hog, to swallow a dog!
 {GetFifthVerseRefrain()}
 {GetFourthVerseRefrain()}
@@ -42,7 +41,7 @@ What a hog, to swallow a dog!
 {GetSecondVerseRefrain()}
 {GetFirstVerseRefrain()}
 
-{SwallowAnAnimal("cow")};
+{new Verse("cow").SwallowAnimal()};
 I don't know how she swallowed a cow!
 {GetSixthVerseRefrain()}
 {GetFifthVerseRefrain()}
@@ -51,13 +50,8 @@ I don't know how she swallowed a cow!
 {GetSecondVerseRefrain()}
 {GetFirstVerseRefrain()}
 
-{SwallowAnAnimal("horse..")}.
+{new Verse("horse..").SwallowAnimal()}.
 ...She's dead, of course!";
-        }
-
-        private static string SwallowAnAnimal(string animal)
-        {
-            return $"There was an old lady who swallowed a {animal}";
         }
 
         private static string GetFirstVerseRefrain()
@@ -88,6 +82,53 @@ I don't know how she swallowed a cow!
         private static string GetSixthVerseRefrain()
         {
             return "She swallowed the cow to catch the dog,";
+        }
+    }
+
+    public class Verse
+    {
+        protected readonly string animal;
+
+        public Verse(string animal)
+        {
+            this.animal = animal;
+        }
+
+        public string SwallowAnimal()
+        {
+            return $"There was an old lady who swallowed a {animal}";
+        }
+
+        protected virtual string GetLyrics()
+        {
+            return string.Empty;
+        }
+
+        protected virtual string GetRefrain()
+        {
+            return string.Empty;
+        }
+
+        public override string ToString()
+        {
+            return GetLyrics();
+        }
+    }
+
+    public class FirstVerse : Verse
+    {
+        public FirstVerse(string animal) : base(animal)
+        {
+        }
+
+        protected override string GetLyrics()
+        {
+            return $"{SwallowAnimal()}.\n{GetRefrain()}";
+        }
+
+        protected override string GetRefrain()
+        {
+            return $"I don't know why she swallowed a {animal} - perhaps she'll die!";
         }
     }
 }
